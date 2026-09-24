@@ -14363,6 +14363,23 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
+const __iconNode$c = [
+  ["path", { d: "M12 7v14", key: "1akyts" }],
+  [
+    "path",
+    {
+      d: "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z",
+      key: "ruj8y"
+    }
+  ]
+];
+const BookOpen = createLucideIcon("BookOpen", __iconNode$c);
+/**
+ * @license lucide-react v0.475.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
 const __iconNode$b = [
   [
     "path",
@@ -15759,8 +15776,8 @@ function Phase2Memories({ onNextPhase, onPrevPhase }) {
       }
     ),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl sm:text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-300 via-rose-200 to-amber-200 mb-2", children: "Our Favorite Birthday Memories & Moments 💖" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs sm:text-sm md:text-base text-pink-200/90 max-w-2xl mb-8 leading-relaxed", children: "Click on any photo to open it and read the special text & story written for that picture! 📸✨" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full mb-8", children: memories.map((mem, idx) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs sm:text-sm md:text-base text-pink-200/90 max-w-2xl mb-8 leading-relaxed", children: "Tap on any photo card to open it in full view and read the sweet story written for it! 📸✨" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 w-full mb-8", children: memories.map((mem, idx) => /* @__PURE__ */ jsxRuntimeExports.jsx(
       motion.div,
       {
         initial: { opacity: 0, scale: 0.9, y: 20 },
@@ -15769,36 +15786,38 @@ function Phase2Memories({ onNextPhase, onPrevPhase }) {
         whileHover: { scale: 1.03, y: -4 },
         whileTap: { scale: 0.97 },
         onClick: () => handleOpenPhoto(idx),
-        className: "cursor-pointer group select-none",
-        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative w-full rounded-3xl bg-slate-900/90 border-2 border-pink-400/40 p-3 shadow-2xl flex flex-col justify-between group-hover:border-pink-400/80 transition-all", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative w-full h-72 sm:h-80 rounded-2xl overflow-hidden bg-slate-950/90 border border-white/10 flex items-center justify-center p-1", children: [
+        className: "cursor-pointer group select-none flex flex-col",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative w-full rounded-3xl bg-slate-900/90 border-2 border-pink-400/40 p-3 shadow-2xl flex flex-col justify-between group-hover:border-pink-400/80 transition-all h-full", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative w-full bg-slate-950/90 rounded-2xl overflow-hidden border border-white/10 flex items-center justify-center p-1.5 min-h-[260px]", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "img",
               {
                 src: mem.image,
                 alt: mem.title,
-                className: "w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 rounded-xl"
+                className: "w-full h-auto max-h-[380px] object-contain rounded-xl shadow-inner group-hover:scale-102 transition-transform duration-300"
               }
             ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-slate-950/90 text-[10px] font-extrabold text-pink-300 border border-pink-500/40 backdrop-blur-sm shadow", children: mem.tag }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "px-3 py-1 rounded-full bg-pink-500/90 text-white text-[11px] font-bold shadow-lg", children: "Click for Story 💌" }) })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-slate-950/90 text-[10px] font-extrabold text-pink-300 border border-pink-500/40 backdrop-blur-sm shadow", children: mem.tag })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pt-3 text-left flex items-center justify-between", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pr-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pt-3 text-left flex flex-col gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-extrabold text-xs sm:text-sm text-pink-100 line-clamp-1", children: mem.title }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[10px] text-pink-300/70 font-medium", children: "Click to view note 💌" })
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "button",
+                {
+                  onClick: (e) => handleLikePhoto(e, mem.id),
+                  className: "flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 hover:bg-rose-500/30 transition-colors font-bold border border-rose-500/30 text-xs shrink-0",
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Heart, { size: 12, className: "fill-rose-500 text-rose-500" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: mem.likes })
+                  ]
+                }
+              )
             ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              "button",
-              {
-                onClick: (e) => handleLikePhoto(e, mem.id),
-                className: "flex items-center gap-1 px-2.5 py-1 rounded-full bg-rose-500/20 text-rose-300 hover:bg-rose-500/30 transition-colors font-bold border border-rose-500/30 text-xs shrink-0",
-                children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(Heart, { size: 12, className: "fill-rose-500 text-rose-500" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: mem.likes })
-                ]
-              }
-            )
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full py-2 rounded-xl bg-pink-500/20 hover:bg-pink-500/30 border border-pink-500/40 text-pink-200 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors shadow-sm", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { size: 13, className: "text-pink-300" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Tap to Read Story 💌" })
+            ] })
           ] })
         ] })
       },
@@ -15841,7 +15860,7 @@ function Phase2Memories({ onNextPhase, onPrevPhase }) {
             {
               src: memories[selectedPhotoIndex].image,
               alt: memories[selectedPhotoIndex].title,
-              className: "w-full h-full object-contain max-h-[55vh] md:max-h-[75vh] rounded-2xl"
+              className: "w-full h-auto max-h-[55vh] md:max-h-[75vh] object-contain rounded-2xl shadow-lg"
             }
           ) }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full md:w-1/2 p-5 sm:p-7 flex flex-col justify-between bg-slate-900/95 border-t md:border-t-0 md:border-l border-pink-500/20 overflow-y-auto", children: [
