@@ -1,90 +1,73 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import Navbar from './components/Navbar';
-import Step1Pengu from './components/Step1Pengu';
-import Step2Cake from './components/Step2Cake';
-import Step3Memories from './components/Step3Memories';
-import Step4Letter from './components/Step4Letter';
+import FarewellNavbar from './components/FarewellNavbar';
+import Phase1Countdown from './components/Phase1Countdown';
+import Phase2Memories from './components/Phase2Memories';
+import Phase3Letter from './components/Phase3Letter';
 import BackgroundParticles from './components/BackgroundParticles';
 
 export default function App() {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentPhase, setCurrentPhase] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
 
   return (
-    <div className="min-h-screen text-slate-100 relative flex flex-col justify-between select-none">
+    <div className="min-h-screen text-slate-100 relative flex flex-col justify-between select-none font-sans">
       {/* Background Animated Floating Particles & Stars */}
       <BackgroundParticles />
 
-      {/* Top Navbar Header (Static visual indicator, non-clickable step jumping) */}
-      <Navbar
-        currentStep={currentStep}
+      {/* Top Navbar Header */}
+      <FarewellNavbar
+        currentPhase={currentPhase}
         isMuted={isMuted}
         setIsMuted={setIsMuted}
       />
 
-      {/* Main Content Step Switcher */}
-      <main className="flex-1 flex items-center justify-center relative z-10 py-4">
+      {/* Main Content Phase Switcher */}
+      <main className="flex-1 flex items-center justify-center relative z-10 py-4 sm:py-6">
         <AnimatePresence mode="wait">
-          {currentStep === 1 && (
+          {currentPhase === 1 && (
             <motion.div
-              key="step1"
+              key="phase1"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 30 }}
               transition={{ duration: 0.3 }}
               className="w-full"
             >
-              <Step1Pengu
-                onNextStep={() => setCurrentStep(2)}
+              <Phase1Countdown
+                onNextPhase={() => setCurrentPhase(2)}
               />
             </motion.div>
           )}
 
-          {currentStep === 2 && (
+          {currentPhase === 2 && (
             <motion.div
-              key="step2"
+              key="phase2"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 30 }}
               transition={{ duration: 0.3 }}
               className="w-full"
             >
-              <Step2Cake
-                onNextStep={() => setCurrentStep(3)}
-                onPrevStep={() => setCurrentStep(1)}
+              <Phase2Memories
+                onNextPhase={() => setCurrentPhase(3)}
+                onPrevPhase={() => setCurrentPhase(1)}
               />
             </motion.div>
           )}
 
-          {currentStep === 3 && (
+          {currentPhase === 3 && (
             <motion.div
-              key="step3"
+              key="phase3"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 30 }}
               transition={{ duration: 0.3 }}
               className="w-full"
             >
-              <Step3Memories
-                onNextStep={() => setCurrentStep(4)}
-                onPrevStep={() => setCurrentStep(2)}
-              />
-            </motion.div>
-          )}
-
-          {currentStep === 4 && (
-            <motion.div
-              key="step4"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 30 }}
-              transition={{ duration: 0.3 }}
-              className="w-full"
-            >
-              <Step4Letter
-                onRestart={() => setCurrentStep(1)}
-                onPrevStep={() => setCurrentStep(3)}
+              <Phase3Letter
+                onRestart={() => setCurrentPhase(1)}
+                onPrevPhase={() => setCurrentPhase(2)}
               />
             </motion.div>
           )}
@@ -93,7 +76,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="py-4 text-center text-xs text-pink-200/50 relative z-10 border-t border-white/5">
-        <p>Made with all my love for my cute Penguuu 🐧💖 • Happy Birthday!</p>
+        <p>Made with all my love for my cute Penguuu 🐧💖 • Birthday Wrap-Up & Memories</p>
       </footer>
     </div>
   );
