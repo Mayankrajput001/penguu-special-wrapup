@@ -1,49 +1,70 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, ChevronRight, Moon } from 'lucide-react';
+import { Clock, ChevronRight, Moon, Sparkles, PartyPopper } from 'lucide-react';
+import confetti from 'canvas-confetti';
 import { sounds } from '../utils/soundEffects';
 
 export default function Phase1Countdown({ onNextPhase }) {
-  // Compute fresh countdown target time (strictly Midnight tonight)
-  const createFreshTargetTime = () => {
+  // Birthday Target (Midnight - Sept 25, 00:00:00)
+  const getBirthdayTarget = () => {
     const now = new Date();
-    let target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
-    if (target.getTime() <= now.getTime()) {
-      target = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 23, 59, 59);
-    }
-    return target;
+    // Midnight (00:00:00) of current date
+    const midnightToday = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+    return midnightToday;
   };
 
-  const [targetTime] = useState(createFreshTargetTime);
+  const [targetTime] = useState(getBirthdayTarget);
   const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
-  const [progress, setProgress] = useState(90);
+  const [isCompleted, setIsCompleted] = useState(true);
+  const [progress, setProgress] = useState(100);
 
   // Calculate live countdown
   useEffect(() => {
     const updateTimer = () => {
       const now = new Date().getTime();
       const target = targetTime.getTime();
-      const diff = Math.max(0, target - now);
+      const diff = target - now;
 
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      if (diff <= 0) {
+        setTimeLeft({ hours: 0, minutes: 0, seconds: 0 });
+        setIsCompleted(true);
+        setProgress(100);
+      } else {
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      setTimeLeft({ hours, minutes, seconds });
+        setTimeLeft({ hours, minutes, seconds });
+        setIsCompleted(false);
 
-      // Progress bar (estimating percentage of day elapsed)
-      const startOfDay = new Date(targetTime);
-      startOfDay.setHours(0, 0, 0, 0);
-      const totalDayMs = Math.max(1, targetTime.getTime() - startOfDay.getTime());
-      const elapsed = Math.min(totalDayMs, Math.max(0, now - startOfDay.getTime()));
-      const percentage = Math.min(100, Math.max(0, (elapsed / totalDayMs) * 100));
-      setProgress(percentage);
+        const startOfDay = new Date(targetTime);
+        startOfDay.setDate(startOfDay.getDate() - 1);
+        const totalMs = targetTime.getTime() - startOfDay.getTime();
+        const elapsed = Math.max(0, now - startOfDay.getTime());
+        const pct = Math.min(100, (elapsed / totalMs) * 100);
+        setProgress(pct);
+      }
     };
 
     updateTimer();
     const interval = setInterval(updateTimer, 1000);
     return () => clearInterval(interval);
   }, [targetTime]);
+
+  // Trigger confetti burst on completion
+  useEffect(() => {
+    if (isCompleted) {
+      try {
+        confetti({
+          particleCount: 100,
+          spread: 80,
+          origin: { y: 0.6 }
+        });
+      } catch (err) {
+        console.error("Confetti error", err);
+      }
+    }
+  }, [isCompleted]);
 
   const highlights = [
     { title: "Sweet Cake Cut 🍰", desc: "Blowing out candles and making a secret wish!" },
@@ -59,18 +80,18 @@ export default function Phase1Countdown({ onNextPhase }) {
       <motion.div 
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-300 text-[11px] sm:text-xs font-bold mb-4 shadow-sm"
+        className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-300 text-[11px] sm:text-xs font-bold mb-4 shadow-sm"
       >
-        <Moon size={14} className="text-pink-400 animate-pulse shrink-0" />
-        <span>Step 1 of 3: Birthday End Countdown 🕯️</span>
+        <PartyPopper size={14} className="text-pink-400 animate-bounce shrink-0" />
+        <span>Step 1 of 3: Birthday Celebration Wrapped Up! 🎉</span>
       </motion.div>
 
       {/* Main Headline */}
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-rose-300 via-pink-200 to-amber-200 mb-2 leading-tight">
-        As The Birthday Comes To An End... 🕯️✨
+        12:00 AM Passed! Birthday Wrapped Up! 🎂✨
       </h2>
       <p className="text-xs sm:text-sm md:text-base text-pink-200/90 max-w-2xl mb-6 leading-relaxed">
-        The birthday hours are ticking away, but every smile, laugh, and memory from today will stay in our hearts forever! Here is our official countdown to the end of the birthday celebration. 💖
+        The clock has struck midnight and the birthday celebration is officially complete! Every smile, laugh, and sweet moment from today has been captured forever. 💖
       </p>
 
       {/* COUNTDOWN CLOCK CARD */}
@@ -82,8 +103,8 @@ export default function Phase1Countdown({ onNextPhase }) {
       >
         <div className="flex items-center justify-center border-b border-pink-500/20 pb-4 mb-6">
           <div className="flex items-center gap-2 text-rose-200 font-extrabold text-sm sm:text-base">
-            <Clock size={18} className="text-pink-400 animate-pulse" />
-            <span>Time Remaining In Birthday ⏳</span>
+            <Sparkles size={18} className="text-pink-400 animate-pulse" />
+            <span>Birthday Countdown Completed (12:00 AM) 🥳</span>
           </div>
         </div>
 
@@ -96,9 +117,9 @@ export default function Phase1Countdown({ onNextPhase }) {
           ].map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center justify-center p-3 sm:p-5 rounded-2xl bg-slate-950/80 border border-pink-500/30 shadow-inner group hover:border-pink-400/60 transition-colors"
+              className="flex flex-col items-center justify-center p-3 sm:p-5 rounded-2xl bg-slate-950/90 border border-rose-500/40 shadow-inner group hover:border-pink-400/60 transition-colors"
             >
-              <span className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-pink-200 via-rose-300 to-purple-300 font-mono tracking-wider">
+              <span className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-rose-300 via-pink-300 to-amber-200 font-mono tracking-wider">
                 {String(item.value).padStart(2, '0')}
               </span>
               <span className="text-[10px] sm:text-xs font-extrabold text-pink-300/90 uppercase tracking-widest mt-1.5 flex items-center gap-1">
@@ -111,14 +132,14 @@ export default function Phase1Countdown({ onNextPhase }) {
 
         {/* DAY PROGRESS BAR */}
         <div className="w-full max-w-lg mx-auto space-y-1.5">
-          <div className="flex justify-between text-[11px] text-pink-200/80 font-medium">
+          <div className="flex justify-between text-[11px] text-pink-200/90 font-bold">
             <span>Birthday Started 🎈</span>
-            <span>{Math.round(progress)}% Completed</span>
-            <span>Birthday End 🌙</span>
+            <span className="text-rose-300 animate-pulse">100% Wrapped Up! 🎉</span>
+            <span>Midnight 12:00 AM 🌙</span>
           </div>
-          <div className="w-full bg-slate-900/90 rounded-full h-3 p-0.5 border border-pink-500/30 overflow-hidden">
+          <div className="w-full bg-slate-900/90 rounded-full h-3 p-0.5 border border-pink-500/40 overflow-hidden">
             <motion.div
-              className="h-full rounded-full bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500"
+              className="h-full rounded-full bg-gradient-to-r from-rose-500 via-pink-500 to-amber-400"
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
               transition={{ duration: 1, ease: "easeOut" }}
@@ -165,3 +186,4 @@ export default function Phase1Countdown({ onNextPhase }) {
     </div>
   );
 }
+
