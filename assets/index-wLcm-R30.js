@@ -15758,7 +15758,7 @@ function Phase2Memories({ onNextPhase, onPrevPhase }) {
         ]
       }
     ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl sm:text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-300 via-rose-200 to-amber-200 mb-2", children: "Our Birthday Memories & Moments 💖" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl sm:text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-300 via-rose-200 to-amber-200 mb-2", children: "Our Favorite Birthday Memories & Moments 💖" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs sm:text-sm md:text-base text-pink-200/90 max-w-2xl mb-8 leading-relaxed", children: "Click on any photo to open it and read the special text & story written for that picture! 📸✨" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full mb-8", children: memories.map((mem, idx) => /* @__PURE__ */ jsxRuntimeExports.jsx(
       motion.div,
@@ -15770,20 +15770,20 @@ function Phase2Memories({ onNextPhase, onPrevPhase }) {
         whileTap: { scale: 0.97 },
         onClick: () => handleOpenPhoto(idx),
         className: "cursor-pointer group select-none",
-        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative w-full h-[360px] rounded-3xl bg-slate-900/90 border-2 border-pink-400/40 p-3 shadow-2xl flex flex-col justify-between group-hover:border-pink-400/80 transition-all", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative w-full h-64 rounded-2xl overflow-hidden bg-slate-950 border border-white/10", children: [
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative w-full rounded-3xl bg-slate-900/90 border-2 border-pink-400/40 p-3 shadow-2xl flex flex-col justify-between group-hover:border-pink-400/80 transition-all", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative w-full h-72 sm:h-80 rounded-2xl overflow-hidden bg-slate-950/90 border border-white/10 flex items-center justify-center p-1", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "img",
               {
                 src: mem.image,
                 alt: mem.title,
-                className: "w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                className: "w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 rounded-xl"
               }
             ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-slate-950/85 text-[10px] font-extrabold text-pink-300 border border-pink-500/40 backdrop-blur-sm", children: mem.tag }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "px-3 py-1 rounded-full bg-pink-500/90 text-white text-[11px] font-bold shadow-lg", children: "Click to Read Story 💌" }) })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-slate-950/90 text-[10px] font-extrabold text-pink-300 border border-pink-500/40 backdrop-blur-sm shadow", children: mem.tag }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "px-3 py-1 rounded-full bg-pink-500/90 text-white text-[11px] font-bold shadow-lg", children: "Click for Story 💌" }) })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pt-2 text-left flex items-center justify-between", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pt-3 text-left flex items-center justify-between", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pr-2", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-extrabold text-xs sm:text-sm text-pink-100 line-clamp-1", children: mem.title }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[10px] text-pink-300/70 font-medium", children: "Click to view note 💌" })
@@ -15836,7 +15836,7 @@ function Phase2Memories({ onNextPhase, onPrevPhase }) {
               children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 20 })
             }
           ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full md:w-1/2 bg-slate-950 flex items-center justify-center min-h-[300px] sm:min-h-[420px] p-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full md:w-1/2 bg-slate-950 flex items-center justify-center p-3 min-h-[300px] sm:min-h-[420px]", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
             "img",
             {
               src: memories[selectedPhotoIndex].image,
