@@ -14873,19 +14873,14 @@ function Phase1Countdown({ onNextPhase }) {
   const createFreshTargetTime = () => {
     const now2 = /* @__PURE__ */ new Date();
     let target = new Date(now2.getFullYear(), now2.getMonth(), now2.getDate(), 23, 59, 59);
-    if (target.getTime() - now2.getTime() < 2 * 60 * 60 * 1e3) {
-      target = new Date(now2.getTime() + 12 * 60 * 60 * 1e3);
+    if (target.getTime() <= now2.getTime()) {
+      target = new Date(now2.getFullYear(), now2.getMonth(), now2.getDate() + 1, 23, 59, 59);
     }
     return target;
   };
-  const [targetTime, setTargetTime] = reactExports.useState(createFreshTargetTime);
+  const [targetTime] = reactExports.useState(createFreshTargetTime);
   const [timeLeft, setTimeLeft] = reactExports.useState({ hours: 0, minutes: 0, seconds: 0 });
   const [progress2, setProgress] = reactExports.useState(90);
-  const handleResetTimer = () => {
-    sounds.playSparkle();
-    const fresh = createFreshTargetTime();
-    setTargetTime(fresh);
-  };
   reactExports.useEffect(() => {
     const updateTimer = () => {
       const now2 = (/* @__PURE__ */ new Date()).getTime();
@@ -14935,24 +14930,10 @@ function Phase1Countdown({ onNextPhase }) {
         transition: { duration: 0.4 },
         className: "w-full glass-card-pink rounded-3xl p-5 sm:p-8 border border-pink-400/40 shadow-2xl mb-8 relative overflow-hidden glow-pink",
         children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between border-b border-pink-500/20 pb-4 mb-6", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 text-rose-200 font-extrabold text-sm sm:text-base", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { size: 18, className: "text-pink-400 animate-pulse" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Time Remaining In Birthday ⏳" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              "button",
-              {
-                onClick: handleResetTimer,
-                className: "px-3 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 border border-pink-500/30 text-pink-300 text-xs font-semibold flex items-center gap-1.5 transition-colors",
-                title: "Reset Countdown Clock",
-                children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(RotateCcw, { size: 12 }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Reset Clock" })
-                ]
-              }
-            )
-          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center border-b border-pink-500/20 pb-4 mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 text-rose-200 font-extrabold text-sm sm:text-base", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { size: 18, className: "text-pink-400 animate-pulse" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Time Remaining In Birthday ⏳" })
+          ] }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-3 gap-3 sm:gap-6 max-w-md mx-auto mb-6", children: [
             { label: "Hours", value: timeLeft.hours, icon: "⏰" },
             { label: "Minutes", value: timeLeft.minutes, icon: "⌛" },
