@@ -14363,7 +14363,7 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$b = [
+const __iconNode$a = [
   ["path", { d: "M12 7v14", key: "1akyts" }],
   [
     "path",
@@ -14373,14 +14373,14 @@ const __iconNode$b = [
     }
   ]
 ];
-const BookOpen = createLucideIcon("BookOpen", __iconNode$b);
+const BookOpen = createLucideIcon("BookOpen", __iconNode$a);
 /**
  * @license lucide-react v0.475.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$a = [
+const __iconNode$9 = [
   [
     "path",
     {
@@ -14390,30 +14390,30 @@ const __iconNode$a = [
   ],
   ["circle", { cx: "12", cy: "13", r: "3", key: "1vg3eu" }]
 ];
-const Camera = createLucideIcon("Camera", __iconNode$a);
+const Camera = createLucideIcon("Camera", __iconNode$9);
 /**
  * @license lucide-react v0.475.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$9 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
-const ChevronLeft = createLucideIcon("ChevronLeft", __iconNode$9);
+const __iconNode$8 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
+const ChevronLeft = createLucideIcon("ChevronLeft", __iconNode$8);
 /**
  * @license lucide-react v0.475.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$8 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("ChevronRight", __iconNode$8);
+const __iconNode$7 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("ChevronRight", __iconNode$7);
 /**
  * @license lucide-react v0.475.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$7 = [
+const __iconNode$6 = [
   [
     "path",
     {
@@ -14422,18 +14422,7 @@ const __iconNode$7 = [
     }
   ]
 ];
-const Heart = createLucideIcon("Heart", __iconNode$7);
-/**
- * @license lucide-react v0.475.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$6 = [
-  ["rect", { width: "20", height: "16", x: "2", y: "4", rx: "2", key: "18n3k1" }],
-  ["path", { d: "m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7", key: "1ocrg3" }]
-];
-const Mail = createLucideIcon("Mail", __iconNode$6);
+const Heart = createLucideIcon("Heart", __iconNode$6);
 /**
  * @license lucide-react v0.475.0 - ISC
  *
@@ -14441,32 +14430,10 @@ const Mail = createLucideIcon("Mail", __iconNode$6);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$5 = [
-  ["path", { d: "M5.8 11.3 2 22l10.7-3.79", key: "gwxi1d" }],
-  ["path", { d: "M4 3h.01", key: "1vcuye" }],
-  ["path", { d: "M22 8h.01", key: "1mrtc2" }],
-  ["path", { d: "M15 2h.01", key: "1cjtqr" }],
-  ["path", { d: "M22 20h.01", key: "1mrys2" }],
-  [
-    "path",
-    {
-      d: "m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10",
-      key: "hbicv8"
-    }
-  ],
-  [
-    "path",
-    { d: "m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17", key: "1i94pl" }
-  ],
-  ["path", { d: "m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7", key: "1cofks" }],
-  [
-    "path",
-    {
-      d: "M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z",
-      key: "4kbmks"
-    }
-  ]
+  ["rect", { width: "20", height: "16", x: "2", y: "4", rx: "2", key: "18n3k1" }],
+  ["path", { d: "m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7", key: "1ocrg3" }]
 ];
-const PartyPopper = createLucideIcon("PartyPopper", __iconNode$5);
+const Mail = createLucideIcon("Mail", __iconNode$5);
 /**
  * @license lucide-react v0.475.0 - ISC
  *
@@ -14836,9 +14803,8 @@ class SoundEffects {
 const sounds = new SoundEffects();
 function FarewellNavbar({ currentPhase, isMuted, setIsMuted }) {
   const phases = [
-    { id: 1, label: "End Countdown", icon: "⏳" },
-    { id: 2, label: "Memories", icon: "📸" },
-    { id: 3, label: "Thank You Letter", icon: "💌" }
+    { id: 1, label: "Memories", icon: "📸" },
+    { id: 2, label: "Thank You Letter", icon: "💌" }
   ];
   const handleMuteToggle = () => {
     const muted = sounds.toggleMute();
@@ -15577,164 +15543,11 @@ var module$1 = {};
 }(), module$1, false);
 const confetti = module$1.exports;
 module$1.exports.create;
-function Phase1Countdown({ onNextPhase }) {
-  const getBirthdayTarget = () => {
-    const now2 = /* @__PURE__ */ new Date();
-    const midnightToday = new Date(now2.getFullYear(), now2.getMonth(), now2.getDate(), 0, 0, 0);
-    return midnightToday;
-  };
-  const [targetTime] = reactExports.useState(getBirthdayTarget);
-  const [timeLeft, setTimeLeft] = reactExports.useState({ hours: 0, minutes: 0, seconds: 0 });
-  const [isCompleted, setIsCompleted] = reactExports.useState(true);
-  const [progress2, setProgress] = reactExports.useState(100);
-  reactExports.useEffect(() => {
-    const updateTimer = () => {
-      const now2 = (/* @__PURE__ */ new Date()).getTime();
-      const target = targetTime.getTime();
-      const diff = target - now2;
-      if (diff <= 0) {
-        setTimeLeft({ hours: 0, minutes: 0, seconds: 0 });
-        setIsCompleted(true);
-        setProgress(100);
-      } else {
-        const hours = Math.floor(diff / (1e3 * 60 * 60));
-        const minutes = Math.floor(diff % (1e3 * 60 * 60) / (1e3 * 60));
-        const seconds = Math.floor(diff % (1e3 * 60) / 1e3);
-        setTimeLeft({ hours, minutes, seconds });
-        setIsCompleted(false);
-        const startOfDay = new Date(targetTime);
-        startOfDay.setDate(startOfDay.getDate() - 1);
-        const totalMs = targetTime.getTime() - startOfDay.getTime();
-        const elapsed = Math.max(0, now2 - startOfDay.getTime());
-        const pct = Math.min(100, elapsed / totalMs * 100);
-        setProgress(pct);
-      }
-    };
-    updateTimer();
-    const interval = setInterval(updateTimer, 1e3);
-    return () => clearInterval(interval);
-  }, [targetTime]);
-  reactExports.useEffect(() => {
-    if (isCompleted) {
-      try {
-        confetti({
-          particleCount: 100,
-          spread: 80,
-          origin: { y: 0.6 }
-        });
-      } catch (err) {
-        console.error("Confetti error", err);
-      }
-    }
-  }, [isCompleted]);
-  const highlights = [
-    { title: "Sweet Cake Cut 🍰", desc: "Blowing out candles and making a secret wish!" },
-    { title: "Big Happy Smiles 🥰", desc: "Your priceless laugh that lit up the entire day." },
-    { title: "Heartfelt Wishes 💌", desc: "Love and messages from everyone who cherishes you." },
-    { title: "Forever Bond 💖", desc: "Another year older, sweeter, and more adorable!" }
-  ];
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center justify-center py-4 sm:py-6 px-3 sm:px-4 max-w-4xl mx-auto text-center min-h-[78vh] sm:min-h-[82vh] w-full", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      motion.div,
-      {
-        initial: { opacity: 0, y: -10 },
-        animate: { opacity: 1, y: 0 },
-        className: "inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-300 text-[11px] sm:text-xs font-bold mb-4 shadow-sm",
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(PartyPopper, { size: 14, className: "text-pink-400 animate-bounce shrink-0" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Step 1 of 3: Birthday Celebration Wrapped Up! 🎉" })
-        ]
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl sm:text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-rose-300 via-pink-200 to-amber-200 mb-2 leading-tight", children: "12:00 AM Passed! Birthday Wrapped Up! 🎂✨" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs sm:text-sm md:text-base text-pink-200/90 max-w-2xl mb-6 leading-relaxed", children: "The clock has struck midnight and the birthday celebration is officially complete! Every smile, laugh, and sweet moment from today has been captured forever. 💖" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      motion.div,
-      {
-        initial: { scale: 0.95, opacity: 0 },
-        animate: { scale: 1, opacity: 1 },
-        transition: { duration: 0.4 },
-        className: "w-full glass-card-pink rounded-3xl p-5 sm:p-8 border border-pink-400/40 shadow-2xl mb-8 relative overflow-hidden glow-pink",
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center border-b border-pink-500/20 pb-4 mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 text-rose-200 font-extrabold text-sm sm:text-base", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Sparkles, { size: 18, className: "text-pink-400 animate-pulse" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Birthday Countdown Completed (12:00 AM) 🥳" })
-          ] }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-3 gap-3 sm:gap-6 max-w-md mx-auto mb-6", children: [
-            { label: "Hours", value: timeLeft.hours, icon: "⏰" },
-            { label: "Minutes", value: timeLeft.minutes, icon: "⌛" },
-            { label: "Seconds", value: timeLeft.seconds, icon: "✨" }
-          ].map((item, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "div",
-            {
-              className: "flex flex-col items-center justify-center p-3 sm:p-5 rounded-2xl bg-slate-950/90 border border-rose-500/40 shadow-inner group hover:border-pink-400/60 transition-colors",
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-2xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-rose-300 via-pink-300 to-amber-200 font-mono tracking-wider", children: String(item.value).padStart(2, "0") }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-[10px] sm:text-xs font-extrabold text-pink-300/90 uppercase tracking-widest mt-1.5 flex items-center gap-1", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: item.icon }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: item.label })
-                ] })
-              ]
-            },
-            idx
-          )) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full max-w-lg mx-auto space-y-1.5", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between text-[11px] text-pink-200/90 font-bold", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Birthday Started 🎈" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-rose-300 animate-pulse", children: "100% Wrapped Up! 🎉" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Midnight 12:00 AM 🌙" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full bg-slate-900/90 rounded-full h-3 p-0.5 border border-pink-500/40 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-              motion.div,
-              {
-                className: "h-full rounded-full bg-gradient-to-r from-rose-500 via-pink-500 to-amber-400",
-                initial: { width: 0 },
-                animate: { width: `${progress2}%` },
-                transition: { duration: 1, ease: "easeOut" }
-              }
-            ) })
-          ] })
-        ]
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full mb-8 text-left", children: highlights.map((h, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      motion.div,
-      {
-        initial: { opacity: 0, y: 15 },
-        animate: { opacity: 1, y: 0 },
-        transition: { delay: i * 0.1 },
-        className: "p-3.5 sm:p-4 rounded-2xl bg-slate-900/80 border border-pink-500/20 hover:border-pink-400/50 transition-colors",
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs sm:text-sm font-bold text-pink-200 mb-1 flex items-center gap-1.5", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: h.title }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[10px] sm:text-xs text-pink-300/75 leading-relaxed", children: h.desc })
-        ]
-      },
-      i
-    )) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      motion.button,
-      {
-        whileHover: { scale: 1.04 },
-        whileTap: { scale: 0.96 },
-        onClick: () => {
-          sounds.playSparkle();
-          onNextPhase();
-        },
-        className: "px-6 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 text-white font-extrabold text-sm sm:text-base md:text-lg shadow-xl shadow-rose-500/25 glow-pink flex items-center gap-2.5 group border border-pink-300/40",
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Open Birthday Memories Scrapbook" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl", children: "📸" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 18, className: "group-hover:translate-x-1 transition-transform" })
-        ]
-      }
-    )
-  ] });
-}
 const pengu1 = "" + new URL("pengu1-C6weVPgO.jpeg", import.meta.url).href;
 const pengu2 = "" + new URL("pengu2-CGLuYaoH.jpeg", import.meta.url).href;
 const pengu3 = "" + new URL("pengu3-D2_H6Gr1.jpeg", import.meta.url).href;
 const pengu4 = "" + new URL("pengu4-DpQTxaYj.jpeg", import.meta.url).href;
-function Phase2Memories({ onNextPhase, onPrevPhase }) {
+function Phase2Memories({ onNextPhase }) {
   const photoMemories = [
     {
       id: 1,
@@ -15798,7 +15611,7 @@ function Phase2Memories({ onNextPhase, onPrevPhase }) {
         className: "inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-300 text-[11px] sm:text-xs font-bold mb-4 shadow-sm",
         children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Camera, { size: 14, className: "text-pink-400 shrink-0 animate-pulse" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Step 2 of 3: Birthday Memories Gallery 📸" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Step 1 of 2: Birthday Memories Gallery 📸" })
         ]
       }
     ),
@@ -15931,37 +15744,21 @@ function Phase2Memories({ onNextPhase, onPrevPhase }) {
         ]
       }
     ) }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap items-center justify-center gap-3 mt-4", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        "button",
-        {
-          onClick: () => {
-            sounds.playPop();
-            onPrevPhase();
-          },
-          className: "px-5 py-3 rounded-full bg-slate-900 hover:bg-slate-800 border border-white/10 text-slate-300 font-semibold text-xs sm:text-sm flex items-center gap-2 transition-colors",
-          children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { size: 16 }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Back to End Countdown" })
-          ]
-        }
-      ),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        "button",
-        {
-          onClick: () => {
-            sounds.playSparkle();
-            onNextPhase();
-          },
-          className: "px-6 py-3 rounded-full bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 text-white font-extrabold text-xs sm:text-sm shadow-lg flex items-center gap-2 hover:scale-105 transition-transform border border-pink-300/40 glow-pink",
-          children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Open Thank You Letter" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-base", children: "💌" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 16 })
-          ]
-        }
-      )
-    ] })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-wrap items-center justify-center gap-3 mt-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "button",
+      {
+        onClick: () => {
+          sounds.playSparkle();
+          onNextPhase();
+        },
+        className: "px-6 py-3 rounded-full bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 text-white font-extrabold text-xs sm:text-sm shadow-lg flex items-center gap-2 hover:scale-105 transition-transform border border-pink-300/40 glow-pink",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Open Thank You Letter" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-base", children: "💌" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 16 })
+        ]
+      }
+    ) })
   ] });
 }
 function Phase3Letter({ onRestart, onPrevPhase }) {
@@ -15988,7 +15785,7 @@ function Phase3Letter({ onRestart, onPrevPhase }) {
         className: "inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-300 text-[11px] sm:text-xs font-bold mb-4 shadow-sm",
         children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { size: 14, className: "text-pink-400 shrink-0 animate-pulse" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Step 3 of 3: Heartfelt Thank You Letter 💌" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Step 2 of 2: Heartfelt Thank You Letter 💌" })
         ]
       }
     ),
@@ -16146,7 +15943,7 @@ function App() {
           transition: { duration: 0.3 },
           className: "w-full",
           children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Phase1Countdown,
+            Phase2Memories,
             {
               onNextPhase: () => setCurrentPhase(2)
             }
@@ -16163,32 +15960,14 @@ function App() {
           transition: { duration: 0.3 },
           className: "w-full",
           children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Phase2Memories,
+            Phase3Letter,
             {
-              onNextPhase: () => setCurrentPhase(3),
+              onRestart: () => setCurrentPhase(1),
               onPrevPhase: () => setCurrentPhase(1)
             }
           )
         },
         "phase2"
-      ),
-      currentPhase === 3 && /* @__PURE__ */ jsxRuntimeExports.jsx(
-        motion.div,
-        {
-          initial: { opacity: 0, x: -30 },
-          animate: { opacity: 1, x: 0 },
-          exit: { opacity: 0, x: 30 },
-          transition: { duration: 0.3 },
-          className: "w-full",
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Phase3Letter,
-            {
-              onRestart: () => setCurrentPhase(1),
-              onPrevPhase: () => setCurrentPhase(2)
-            }
-          )
-        },
-        "phase3"
       )
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "py-4 text-center text-xs text-pink-200/50 relative z-10 border-t border-white/5", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Made with all my love for my cute Penguuu 🐧💖 • Birthday Wrap-Up & Memories" }) })
