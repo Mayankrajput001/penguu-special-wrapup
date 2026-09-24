@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Camera, Heart, ChevronLeft, ChevronRight, X, HeartHandshake } from 'lucide-react';
+import { Sparkles, Camera, Heart, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { sounds } from '../utils/soundEffects';
 
@@ -86,13 +86,13 @@ export default function Phase2Memories({ onNextPhase, onPrevPhase }) {
 
       {/* Main Title */}
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-300 via-rose-200 to-amber-200 mb-2">
-        Our Birthday Memories & Moments 💖
+        Our Favorite Birthday Memories & Moments 💖
       </h2>
       <p className="text-xs sm:text-sm md:text-base text-pink-200/90 max-w-2xl mb-8 leading-relaxed">
         Click on any photo to open it and read the special text & story written for that picture! 📸✨
       </p>
 
-      {/* PHOTO CARDS GRID (First View: Photos Front & Center) */}
+      {/* PHOTO CARDS GRID (Mobile-optimized un-cropped photos) */}
       <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full mb-8">
         {memories.map((mem, idx) => (
           <motion.div
@@ -105,31 +105,31 @@ export default function Phase2Memories({ onNextPhase, onPrevPhase }) {
             onClick={() => handleOpenPhoto(idx)}
             className="cursor-pointer group select-none"
           >
-            <div className="relative w-full h-[360px] rounded-3xl bg-slate-900/90 border-2 border-pink-400/40 p-3 shadow-2xl flex flex-col justify-between group-hover:border-pink-400/80 transition-all">
+            <div className="relative w-full rounded-3xl bg-slate-900/90 border-2 border-pink-400/40 p-3 shadow-2xl flex flex-col justify-between group-hover:border-pink-400/80 transition-all">
               
-              {/* Photo Image Container */}
-              <div className="relative w-full h-64 rounded-2xl overflow-hidden bg-slate-950 border border-white/10">
+              {/* Photo Image Container: object-contain to prevent any cropping on mobile */}
+              <div className="relative w-full h-72 sm:h-80 rounded-2xl overflow-hidden bg-slate-950/90 border border-white/10 flex items-center justify-center p-1">
                 <img
                   src={mem.image}
                   alt={mem.title}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 rounded-xl"
                 />
                 
                 {/* Badge Tag */}
-                <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-slate-950/85 text-[10px] font-extrabold text-pink-300 border border-pink-500/40 backdrop-blur-sm">
+                <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-slate-950/90 text-[10px] font-extrabold text-pink-300 border border-pink-500/40 backdrop-blur-sm shadow">
                   {mem.tag}
                 </div>
 
                 {/* Click to read story overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-3">
                   <span className="px-3 py-1 rounded-full bg-pink-500/90 text-white text-[11px] font-bold shadow-lg">
-                    Click to Read Story 💌
+                    Click for Story 💌
                   </span>
                 </div>
               </div>
 
               {/* Photo Title & Likes */}
-              <div className="pt-2 text-left flex items-center justify-between">
+              <div className="pt-3 text-left flex items-center justify-between">
                 <div className="pr-2">
                   <h3 className="font-extrabold text-xs sm:text-sm text-pink-100 line-clamp-1">
                     {mem.title}
@@ -151,7 +151,7 @@ export default function Phase2Memories({ onNextPhase, onPrevPhase }) {
         ))}
       </div>
 
-      {/* INTERACTIVE PHOTO & STORY MODAL (Opened on Photo Click) */}
+      {/* INTERACTIVE PHOTO & STORY MODAL */}
       <AnimatePresence>
         {selectedPhotoIndex !== null && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-xl">
@@ -185,8 +185,8 @@ export default function Phase2Memories({ onNextPhase, onPrevPhase }) {
                 <ChevronRight size={20} />
               </button>
 
-              {/* Left Column: Full Photo Display */}
-              <div className="w-full md:w-1/2 bg-slate-950 flex items-center justify-center min-h-[300px] sm:min-h-[420px] p-2">
+              {/* Left Column: Full Un-cropped Photo Display */}
+              <div className="w-full md:w-1/2 bg-slate-950 flex items-center justify-center p-3 min-h-[300px] sm:min-h-[420px]">
                 <img
                   src={memories[selectedPhotoIndex].image}
                   alt={memories[selectedPhotoIndex].title}
