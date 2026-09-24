@@ -1,32 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, ChevronRight, Moon, RotateCcw } from 'lucide-react';
+import { Clock, ChevronRight, Moon } from 'lucide-react';
 import { sounds } from '../utils/soundEffects';
 
 export default function Phase1Countdown({ onNextPhase }) {
-  // Compute fresh countdown target time
+  // Compute fresh countdown target time (strictly Midnight tonight)
   const createFreshTargetTime = () => {
     const now = new Date();
-    // Midnight tonight
     let target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
-    
-    // If less than 2 hours left or past midnight, give a full 12-hour wrap-up clock
-    if (target.getTime() - now.getTime() < 2 * 60 * 60 * 1000) {
-      target = new Date(now.getTime() + 12 * 60 * 60 * 1000);
+    if (target.getTime() <= now.getTime()) {
+      target = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 23, 59, 59);
     }
     return target;
   };
 
-  const [targetTime, setTargetTime] = useState(createFreshTargetTime);
+  const [targetTime] = useState(createFreshTargetTime);
   const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
   const [progress, setProgress] = useState(90);
-
-  // Manual Reset Timer handler
-  const handleResetTimer = () => {
-    sounds.playSparkle();
-    const fresh = createFreshTargetTime();
-    setTargetTime(fresh);
-  };
 
   // Calculate live countdown
   useEffect(() => {
@@ -90,20 +80,11 @@ export default function Phase1Countdown({ onNextPhase }) {
         transition={{ duration: 0.4 }}
         className="w-full glass-card-pink rounded-3xl p-5 sm:p-8 border border-pink-400/40 shadow-2xl mb-8 relative overflow-hidden glow-pink"
       >
-        <div className="flex items-center justify-between border-b border-pink-500/20 pb-4 mb-6">
+        <div className="flex items-center justify-center border-b border-pink-500/20 pb-4 mb-6">
           <div className="flex items-center gap-2 text-rose-200 font-extrabold text-sm sm:text-base">
             <Clock size={18} className="text-pink-400 animate-pulse" />
             <span>Time Remaining In Birthday ⏳</span>
           </div>
-
-          <button
-            onClick={handleResetTimer}
-            className="px-3 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 border border-pink-500/30 text-pink-300 text-xs font-semibold flex items-center gap-1.5 transition-colors"
-            title="Reset Countdown Clock"
-          >
-            <RotateCcw size={12} />
-            <span>Reset Clock</span>
-          </button>
         </div>
 
         {/* TIMER DISPLAY DIGITS */}
